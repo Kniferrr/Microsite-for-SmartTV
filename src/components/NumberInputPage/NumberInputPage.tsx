@@ -1,8 +1,31 @@
 import ExitButton from "../EscapeButton/ExitButton";
-import PanelNumframe from "../PanelNumframe/PanelNumframe";
+import PanelNumframe from "./PanelNumframe/PanelNumframe";
 import "./NumberInputPage.scss";
+import { setCurrentSelection } from "../../store/reducers/promoPageReducer";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { RootState } from "../../store/store";
+import { handleKeyPress } from "../../Helpers/keyboardHelpers";
+import { useEffect } from "react";
 
 function NumberInputPage() {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const currentSelection = useSelector(
+    (state: RootState) => state.promoPageReducer.currentSelection
+  );
+  const buttons = 14;
+
+  const onHandleKeyPress = (event: KeyboardEvent) => {
+    handleKeyPress(event.key, currentSelection, buttons, dispatch, navigate);
+  };
+  useEffect(() => {
+    document.addEventListener("keydown", onHandleKeyPress);
+
+    return () => {
+      document.removeEventListener("keydown", onHandleKeyPress);
+    };
+  }, [currentSelection]);
   return (
     <>
       <ExitButton />
@@ -21,17 +44,33 @@ function NumberInputPage() {
             <PanelNumframe />
           </div>
           <div>
-            <label className="number-input-page-panel-checkbox-label">
+            <label
+              key={12}
+              className={
+                currentSelection === 12
+                  ? "number-input-page-panel-numframe-selected-label number-input-page-panel-checkbox-label"
+                  : "number-input-page-panel-checkbox-label"
+              }
+              onMouseEnter={() => dispatch(setCurrentSelection(12))}
+            >
               <input
-                type="checkbox"
                 className="number-input-page-panel-checkbox"
+                type="checkbox"
               />
               <div className="number-input-page-panel-checkbox-text number-input-page-panel-text">
                 Согласие на обработку персональных данных
               </div>
             </label>
           </div>
-          <button className="number-input-page-panel-button">
+          <button
+            key={13}
+            className={
+              currentSelection === 13
+                ? "number-input-page-panel-numframe-selected-button number-input-page-panel-button"
+                : "number-input-page-panel-button"
+            }
+            onMouseEnter={() => dispatch(setCurrentSelection(13))}
+          >
             <div className="number-input-page-panel-button-text number-input-page-panel-text">
               Подтвердить номер
             </div>

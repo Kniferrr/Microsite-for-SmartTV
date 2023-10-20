@@ -61,6 +61,7 @@ body {
   height: 100%;
   margin-top: 0px;
   max-width: 284px;
+  padding: 2px;
 }
 
 .number-input-page-panel-checkbox-text {
@@ -104,6 +105,21 @@ body {
     background-color: #000000;
   }
   &:hover .number-input-page-panel-button-text {
+    color: white;
+  }
+}
+
+.number-input-page-panel-numframe-selected-button {
+  background-color: #000000;
+  .number-input-page-panel-button-text {
+    color: white;
+  }
+}
+
+.number-input-page-panel-numframe-selected-label {
+  background-color: #000000;
+  border-radius: 4px;
+  .number-input-page-panel-text {
     color: white;
   }
 }
