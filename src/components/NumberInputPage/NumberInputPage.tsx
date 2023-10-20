@@ -1,8 +1,11 @@
+import ExitButton from "../EscapeButton/ExitButton";
+import PanelNumframe from "../PanelNumframe/PanelNumframe";
 import "./NumberInputPage.scss";
 
 function NumberInputPage() {
   return (
     <>
+      <ExitButton />
       <div className="number-input-page-container">
         <div className="number-input-page-panel">
           <div className="number-input-page-panel-text">
@@ -14,7 +17,9 @@ function NumberInputPage() {
           <div className="number-input-page-panel-text">
             и с Вами свяжется наш менеждер для дальнейшей консультации
           </div>
-          <div className="number-input-page-panel-numframe"></div>
+          <div className="number-input-page-panel-numframe">
+            <PanelNumframe />
+          </div>
           <div>
             <label className="number-input-page-panel-checkbox-label">
               <input

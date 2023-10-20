@@ -1,11 +1,11 @@
 import "./App.css";
-import NumberInputPage from "./components/NumberInputPage/NumberInputPage";
+import FinalPage from "./components/FinalPage/FinalPage";
 
 function App() {
   return (
     <>
       <div className="main-сontainer">
-        <NumberInputPage />
+        <FinalPage />
       </div>
     </>
   );

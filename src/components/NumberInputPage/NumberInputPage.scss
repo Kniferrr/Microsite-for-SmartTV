@@ -35,7 +35,16 @@ body {
   line-height: 16px;
   letter-spacing: 0em;
   text-align: center;
-  margin: 10px;
+  margin: 5px;
+}
+
+.number-input-page-panel-tnumber {
+  font-family: Roboto;
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 38px;
+  letter-spacing: 0em;
+  text-align: left;
 }
 
 .number-input-page-panel-numframe {
@@ -51,6 +60,7 @@ body {
   text-align: left;
   height: 100%;
   margin-top: 0px;
+  max-width: 284px;
 }
 
 .number-input-page-panel-checkbox-text {
@@ -60,12 +70,15 @@ body {
   font-weight: 400;
   line-height: 16px;
   letter-spacing: 0em;
+  text-align: left;
 }
 
 .number-input-page-panel-checkbox {
-  width: 24px;
-  height: 24px;
+  width: 40px;
+  height: 40px;
   margin-right: 10px;
+  color: #86d3f4;
+  border: 4px solid black;
 }
 
 .number-input-page-panel-button {
@@ -80,4 +93,17 @@ body {
   gap: 10px;
   border: 1px solid #4e4e4e;
   border-radius: 0px;
+  font-family: Roboto;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 19px;
+  letter-spacing: 0em;
+  text-align: center;
+
+  &:hover {
+    background-color: #000000;
+  }
+  &:hover .number-input-page-panel-button-text {
+    color: white;
+  }
 }
