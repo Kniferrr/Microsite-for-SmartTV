@@ -22,6 +22,14 @@ function NumberInputPage() {
     useSelector((state: RootState) => state.promoPageReducer);
   const buttons = 14;
   const validateNumberValue = formatPhoneNumber(numberValue);
+  useEffect(() => {
+    document.addEventListener("keydown", onHandleKeyPress);
+
+    return () => {
+      document.removeEventListener("keydown", onHandleKeyPress);
+    };
+  }, [currentSelection]);
+
   const onHandleKeyPress = (event: KeyboardEvent) => {
     handleKeyPress(
       event.key,
@@ -33,13 +41,6 @@ function NumberInputPage() {
       checkBoxState
     );
   };
-  useEffect(() => {
-    document.addEventListener("keydown", onHandleKeyPress);
-
-    return () => {
-      document.removeEventListener("keydown", onHandleKeyPress);
-    };
-  }, [currentSelection]);
 
   return (
     <div className="number-input-page">

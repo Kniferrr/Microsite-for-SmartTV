@@ -20,6 +20,7 @@ function FinalPage() {
   const onHandleKeyPress = (event: KeyboardEvent) => {
     handleKeyPress(event.key, currentSelection, buttons, dispatch, navigate);
   };
+
   useEffect(() => {
     document.addEventListener("keydown", onHandleKeyPress);
 

@@ -13,12 +13,6 @@ function PromoBanner() {
     (state: RootState) => state.promoPageReducer.currentSelection
   );
   const buttons = 1;
-  if (currentSelection > buttons) {
-    dispatch(setCurrentSelection(0));
-  }
-  const onHandleKeyPress = (event: KeyboardEvent) => {
-    handleKeyPress(event.key, currentSelection, buttons, dispatch, navigate);
-  };
   useEffect(() => {
     document.addEventListener("keydown", onHandleKeyPress);
 
@@ -26,6 +20,13 @@ function PromoBanner() {
       document.removeEventListener("keydown", onHandleKeyPress);
     };
   }, [currentSelection]);
+
+  if (currentSelection > buttons) {
+    dispatch(setCurrentSelection(0));
+  }
+  const onHandleKeyPress = (event: KeyboardEvent) => {
+    handleKeyPress(event.key, currentSelection, buttons, dispatch, navigate);
+  };
 
   return (
     <>
