@@ -1,7 +1,11 @@
 import { useDispatch, useSelector } from "react-redux";
 import "./PanelNumframe.scss";
 import { RootState } from "../../../store/store";
-import { setCurrentSelection } from "../../../store/reducers/promoPageReducer";
+import {
+  delLastNumberValue,
+  setCurrentSelection,
+  setNumberValue,
+} from "../../../store/reducers/promoPageReducer";
 
 function PanelNumframe() {
   const dispatch = useDispatch();
@@ -21,6 +25,7 @@ function PanelNumframe() {
                 : "number-input-page-panel-numframe-button"
             }
             onMouseEnter={() => dispatch(setCurrentSelection(1))}
+            onClick={() => dispatch(setNumberValue("1"))}
           >
             <div className="number-input-page-panel-numframe-button-number">
               1
@@ -34,6 +39,7 @@ function PanelNumframe() {
                 : "number-input-page-panel-numframe-button"
             }
             onMouseEnter={() => dispatch(setCurrentSelection(2))}
+            onClick={() => dispatch(setNumberValue("2"))}
           >
             <div className="number-input-page-panel-numframe-button-number">
               2
@@ -47,6 +53,7 @@ function PanelNumframe() {
                 : "number-input-page-panel-numframe-button"
             }
             onMouseEnter={() => dispatch(setCurrentSelection(3))}
+            onClick={() => dispatch(setNumberValue("3"))}
           >
             <div className="number-input-page-panel-numframe-button-number">
               3
@@ -62,6 +69,7 @@ function PanelNumframe() {
                 : "number-input-page-panel-numframe-button"
             }
             onMouseEnter={() => dispatch(setCurrentSelection(4))}
+            onClick={() => dispatch(setNumberValue("4"))}
           >
             <div className="number-input-page-panel-numframe-button-number">
               4
@@ -75,6 +83,7 @@ function PanelNumframe() {
                 : "number-input-page-panel-numframe-button"
             }
             onMouseEnter={() => dispatch(setCurrentSelection(5))}
+            onClick={() => dispatch(setNumberValue("5"))}
           >
             <div className="number-input-page-panel-numframe-button-number">
               5
@@ -88,6 +97,7 @@ function PanelNumframe() {
                 : "number-input-page-panel-numframe-button"
             }
             onMouseEnter={() => dispatch(setCurrentSelection(6))}
+            onClick={() => dispatch(setNumberValue("6"))}
           >
             <div className="number-input-page-panel-numframe-button-number">
               6
@@ -103,6 +113,7 @@ function PanelNumframe() {
                 : "number-input-page-panel-numframe-button"
             }
             onMouseEnter={() => dispatch(setCurrentSelection(7))}
+            onClick={() => dispatch(setNumberValue("7"))}
           >
             <div className="number-input-page-panel-numframe-button-number">
               7
@@ -116,6 +127,7 @@ function PanelNumframe() {
                 : "number-input-page-panel-numframe-button"
             }
             onMouseEnter={() => dispatch(setCurrentSelection(8))}
+            onClick={() => dispatch(setNumberValue("8"))}
           >
             <div className="number-input-page-panel-numframe-button-number">
               8
@@ -129,6 +141,7 @@ function PanelNumframe() {
                 : "number-input-page-panel-numframe-button"
             }
             onMouseEnter={() => dispatch(setCurrentSelection(9))}
+            onClick={() => dispatch(setNumberValue("9"))}
           >
             <div className="number-input-page-panel-numframe-button-number">
               9
@@ -144,6 +157,7 @@ function PanelNumframe() {
                 : "number-input-page-panel-numframe-button-clear number-input-page-panel-numframe-button"
             }
             onMouseEnter={() => dispatch(setCurrentSelection(10))}
+            onClick={() => dispatch(delLastNumberValue())}
           >
             <div className="number-input-page-panel-numframe-button-number">
               Стереть
@@ -157,6 +171,7 @@ function PanelNumframe() {
                 : "number-input-page-panel-numframe-button"
             }
             onMouseEnter={() => dispatch(setCurrentSelection(11))}
+            onClick={() => dispatch(setNumberValue("0"))}
           >
             <div className="number-input-page-panel-numframe-button-number">
               0

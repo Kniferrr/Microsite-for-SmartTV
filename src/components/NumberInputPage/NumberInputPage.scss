@@ -117,9 +117,24 @@ body {
 }
 
 .number-input-page-panel-numframe-selected-label {
-  background-color: #000000;
+  background-color: rgba(0, 0, 0, 0.7);
   border-radius: 4px;
   .number-input-page-panel-text {
     color: white;
+  }
+}
+
+.number-input-page-panel-text-error {
+  color: rgb(192, 12, 12);
+  font-size: 18px;
+  height: 32px;
+}
+
+.disabled-button {
+  background-color: rgba(3, 21, 29, 0.2);
+  cursor: not-allowed;
+  pointer-events: none;
+  .number-input-page-panel-numframe-selected-button {
+    background-color: rgba(3, 21, 29, 0.2);
   }
 }

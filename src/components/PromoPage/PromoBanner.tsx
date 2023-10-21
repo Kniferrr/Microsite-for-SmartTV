@@ -41,12 +41,8 @@ function PromoBanner() {
         </div>
         <a href={`#/number-input`}>
           <button
+            className={"promo-banner-button"}
             key={1}
-            className={
-              currentSelection === 1
-                ? "promo-banner-selected-button promo-banner-button"
-                : "promo-banner-button"
-            }
             onMouseEnter={() => dispatch(setCurrentSelection(1))}
           >
             OK
