@@ -42,7 +42,7 @@ function NumberInputPage() {
   }, [currentSelection]);
 
   return (
-    <>
+    <div className="number-input-page">
       <ExitButton />
       <div className="number-input-page-container">
         <div className="number-input-page-panel">
@@ -108,7 +108,7 @@ function NumberInputPage() {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 }
 

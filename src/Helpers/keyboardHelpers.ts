@@ -22,7 +22,9 @@ export const handleKeyPress = (
   } else if (key === "ArrowRight" && currentSelection < buttons) {
     dispatch(setCurrentSelection(currentSelection + 1));
   } else if (key === "Enter") {
-    if (buttons === 1) {
+    if (buttons === 1 && currentSelection == 14) {
+      navigate("/");
+    } else if (buttons === 1) {
       navigate("/number-input");
     } else if (currentSelection == 14) {
       navigate("/");
