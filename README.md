@@ -1,28 +1,36 @@
-# React + TypeScript + Vite
+Описание проекта
+Этот репозиторий содержит упрощенную демонстрационную версию микросайта для SmartTV, созданную в рамках тестового задания для Junior Frontend Developer. Микросайт представляет собой набор экранов, включая промо-видео с баннером, экран ввода номера с экранной клавиатурой и финальный информационный экран. Экраны вёрстки, навигацию и механизм ввода номера реализованы с использованием React.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Инструкции по установке и запуску
+Чтобы установить и запустить этот проект, выполните следующие шаги:
 
-Currently, two official plugins are available:
+Склонируйте репозиторий с помощью следующей команды:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+git clone https://github.com/Kniferrr/Microsite-for-SmartTV
+Перейдите в директорию проекта:
 
-## Expanding the ESLint configuration
+cd Microsite-for-SmartTV
+Установите зависимости с помощью npm или yarn:
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+npm install
+Запустите проект:
 
-- Configure the top-level `parserOptions` property like this:
+npm start
+Проект будет доступен по адресу http://localhost:3000 в вашем браузере.
 
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
-```
+Технологии и библиотеки
+Проект создан с использованием React.
+Для управления состоянием и навигацией может использоваться TypeScript.
+Дополнительные сторонние библиотеки могут быть использованы по необходимости.
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
-# Microsite-for-SmartTV
+Навигация в микросайте осуществляется с использованием следующих клавиш:
+
+Стрелки для перемещения между кнопками, включая кнопки "закрыть" и "подтвердить".
+Цифры и BACKSPACE для быстрого ввода номера.
+ENTER для выбора активной кнопки.
+
+Бонусные задания
+
+Переход из экрана с видео и баннером должен приостанавливать видео. Переход обратно должен продолжать воспроизведение.
+Добавить валидацию номера с использованием открытого сервиса, например, numverify.com.
+На экране с микросайтом добавить таймер закрытия по бездействию, что интерактив закрывается, если пользователь ничего не делает в течение 10 секунд. Происходит переход на экран промо-видео с баннером.
