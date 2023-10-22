@@ -3,7 +3,7 @@ import {
   setCurrentSelection,
   setNumberValue,
   setReturnCheckBox,
-} from "../store/reducers/promoPageReducer";
+} from "../store/reducers/promoReducer";
 import { validateNumber } from "./FormatNumberHelpers";
 
 export const handleKeyPress = (

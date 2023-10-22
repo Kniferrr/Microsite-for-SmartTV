@@ -1,21 +1,21 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
-interface promoPageReducerState {
+interface promoReducerState {
   currentSelection: number;
   numberValue: string;
   checkBoxState: boolean;
   errorMessage: string;
 }
 
-const initialState: promoPageReducerState = {
+const initialState: promoReducerState = {
   currentSelection: 1,
   numberValue: "",
   checkBoxState: false,
   errorMessage: "",
 };
 
-const promoPageReducer = createSlice({
-  name: "promoPageReducer",
+const promoReducer = createSlice({
+  name: "promoReducer",
   initialState,
   reducers: {
     setCurrentSelection: (state, action: PayloadAction<number>) => {
@@ -47,6 +47,6 @@ export const {
   delLastNumberValue,
   setReturnCheckBox,
   setErrorMessage,
-} = promoPageReducer.actions;
+} = promoReducer.actions;
 
-export default promoPageReducer.reducer;
+export default promoReducer.reducer;

@@ -1,12 +1,12 @@
 import { useDispatch, useSelector } from "react-redux";
 import "./ExitButton.scss";
 import { RootState } from "../../store/store";
-import { setCurrentSelection } from "../../store/reducers/promoPageReducer";
+import { setCurrentSelection } from "../../store/reducers/promoReducer";
 
 function ExitButton() {
   const dispatch = useDispatch();
   const currentSelection = useSelector(
-    (state: RootState) => state.promoPageReducer.currentSelection
+    (state: RootState) => state.promoReducer.currentSelection
   );
   return (
     <>

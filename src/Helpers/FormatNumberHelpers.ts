@@ -1,20 +1,16 @@
-import { setErrorMessage } from "../store/reducers/promoPageReducer";
+import { ValidatedNumber, getValidateNumber } from "../fetch/numVerifyFetch";
+import {
+  setCurrentSelection,
+  setErrorMessage,
+} from "../store/reducers/promoReducer";
 
 export function formatPhoneNumber(input: string): string {
-  // Устанавливаем шаблон номера телефона
   const phoneTemplate = "___)___-__-__";
-
-  // Если входная строка пуста, то возвращаем пустой шаблон
   if (input.length === 0) {
     return phoneTemplate;
   }
-
-  // Создаем копию шаблона, с которой будем работать
   let formattedPhone = phoneTemplate;
-
-  // Итерируем по символам входной строки
   for (const char of input) {
-    // Если символ - цифра, заменяем первое подчеркивание на эту цифру
     if (/[0-9]/.test(char)) {
       formattedPhone = formattedPhone.replace("_", char);
     }
@@ -30,13 +26,24 @@ export function validateNumber(
   dispatch: (action: any) => void
 ) {
   if (numberValue.length == 10 && checkBoxState) {
-    navigate("/final-page");
-    dispatch(setErrorMessage(""));
+    getValidateNumber(numberValue).then((response: ValidatedNumber) => {
+      if (response.valid) {
+        navigate("/final-page");
+        dispatch(setErrorMessage(""));
+        dispatch(setCurrentSelection(14));
+      } else {
+        dispatch(
+          setErrorMessage(
+            "Номер введён не корректно, или ошибка на строне сервера."
+          )
+        );
+      }
+    });
   } else if (!checkBoxState) {
     dispatch(
-      setErrorMessage("Вы не дали согласие на обработку персональных данных")
+      setErrorMessage("Вы не дали согласие на обработку персональных данных.")
     );
   } else if (numberValue.length != 10) {
-    dispatch(setErrorMessage("Номер введён не корректно"));
+    dispatch(setErrorMessage("Номер введён не корректно."));
   }
 }

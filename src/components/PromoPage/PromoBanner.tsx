@@ -3,14 +3,14 @@ import "./PromoBanner.scss";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../store/store";
-import { setCurrentSelection } from "../../store/reducers/promoPageReducer";
+import { setCurrentSelection } from "../../store/reducers/promoReducer";
 import { handleKeyPress } from "../../Helpers/keyboardHelpers";
 
 function PromoBanner() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const currentSelection = useSelector(
-    (state: RootState) => state.promoPageReducer.currentSelection
+    (state: RootState) => state.promoReducer.currentSelection
   );
   const buttons = 1;
   useEffect(() => {

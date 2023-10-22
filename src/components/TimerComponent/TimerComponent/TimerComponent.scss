@@ -1,0 +1,34 @@
+// TimerComponent.module.scss
+.timer-container {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  font-size: 12px;
+  margin-top: 50px;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+}
+
+.timer {
+  z-index: 10;
+  color: #333;
+  background-color: #f0f0f0;
+  padding: 20px;
+  border-radius: 0px;
+  border: 2px black solid;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  width: 100px;
+  height: 100px;
+  margin-right: 50px;
+}
+
+.mouse-moving {
+  font-weight: bold;
+  color: #e74c3c;
+}
+
+.redirect-message {
+  font-size: 16px;
+  color: #3498db;
+}

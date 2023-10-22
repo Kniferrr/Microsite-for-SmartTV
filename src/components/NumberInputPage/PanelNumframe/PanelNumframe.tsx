@@ -5,12 +5,12 @@ import {
   delLastNumberValue,
   setCurrentSelection,
   setNumberValue,
-} from "../../../store/reducers/promoPageReducer";
+} from "../../../store/reducers/promoReducer";
 
 function PanelNumframe() {
   const dispatch = useDispatch();
   const currentSelection = useSelector(
-    (state: RootState) => state.promoPageReducer.currentSelection
+    (state: RootState) => state.promoReducer.currentSelection
   );
 
   return (

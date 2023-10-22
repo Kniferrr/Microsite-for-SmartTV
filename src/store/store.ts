@@ -1,9 +1,9 @@
 import { configureStore } from "@reduxjs/toolkit";
-import promoPageReducer from "./reducers/promoPageReducer";
+import promoReducer from "./reducers/promoReducer";
 
 const store = configureStore({
   reducer: {
-    promoPageReducer: promoPageReducer,
+    promoReducer: promoReducer,
   },
 });
 

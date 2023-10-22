@@ -3,7 +3,6 @@ import ExitButton from "../EscapeButton/ExitButton";
 import "./FinalPage.scss";
 import { useNavigate } from "react-router-dom";
 import { RootState } from "../../store/store";
-import { setCurrentSelection } from "../../store/reducers/promoPageReducer";
 import { handleKeyPress } from "../../Helpers/keyboardHelpers";
 import { useEffect } from "react";
 
@@ -11,12 +10,9 @@ function FinalPage() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const currentSelection = useSelector(
-    (state: RootState) => state.promoPageReducer.currentSelection
+    (state: RootState) => state.promoReducer.currentSelection
   );
   const buttons = 1;
-  if (currentSelection > buttons) {
-    dispatch(setCurrentSelection(14));
-  }
   const onHandleKeyPress = (event: KeyboardEvent) => {
     handleKeyPress(event.key, currentSelection, buttons, dispatch, navigate);
   };
