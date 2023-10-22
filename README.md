@@ -1,7 +1,7 @@
 
 Из за того что Api валидации номера не может работать с https пришлось залить на хостинг
 
-Демо: micrositeforsmarttv.i9801412.beget.tech или http://i9801412.beget.tech/#/
+Демо: http://micrositeforsmarttv.i9801412.beget.tech или http://i9801412.beget.tech/#/
 
 
 Запасная Демонстрация: https://kniferrr.github.io/Microsite-for-SmartTV/
