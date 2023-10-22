@@ -11,7 +11,7 @@ function App() {
     <>
       <Provider store={store}>
         <div className="main-сontainer">
-          <HashRouter basename="/">
+          <HashRouter>
             <Routes>
               <Route path="/" element={<PromoPage />} />
               <Route path="/number-input" element={<NumberInputPage />} />
