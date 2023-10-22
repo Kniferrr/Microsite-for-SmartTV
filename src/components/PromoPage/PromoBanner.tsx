@@ -35,7 +35,7 @@ function PromoBanner() {
           ИСПОЛНИТЕ МЕЧТУ ВАШЕГО МАЛЫША! ПОДАРИТЕ ЕМУ СОБАКУ!
         </div>
         <div className="promo-banner-qrcode">
-          <img src="img/qr-code.png" />
+          <img src="public/img/qr-code.png" />
         </div>
         <div className="promo-banner-text">
           Сканируйте QR-код или нажмите ОК
