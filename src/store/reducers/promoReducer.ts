@@ -1,6 +1,7 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 interface promoReducerState {
+  showComponentPromoBanner: boolean;
   currentSelection: number;
   numberValue: string;
   checkBoxState: boolean;
@@ -8,6 +9,7 @@ interface promoReducerState {
 }
 
 const initialState: promoReducerState = {
+  showComponentPromoBanner: false,
   currentSelection: 1,
   numberValue: "",
   checkBoxState: false,
@@ -38,6 +40,9 @@ const promoReducer = createSlice({
     setErrorMessage: (state, action: PayloadAction<string>) => {
       state.errorMessage = action.payload;
     },
+    SetShowComponentPromoBanner: (state, action: PayloadAction<boolean>) => {
+      state.showComponentPromoBanner = action.payload;
+    },
   },
 });
 
@@ -47,6 +52,7 @@ export const {
   delLastNumberValue,
   setReturnCheckBox,
   setErrorMessage,
+  SetShowComponentPromoBanner,
 } = promoReducer.actions;
 
 export default promoReducer.reducer;

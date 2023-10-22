@@ -1,11 +1,16 @@
 import "./PromoPage.scss";
 import PromoBanner from "./PromoBanner";
 import { useEffect, useState, useRef } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { RootState } from "../../store/store";
+import { SetShowComponentPromoBanner } from "../../store/reducers/promoReducer";
 
 function PromoPage() {
-  const [showComponent, setShowComponent] = useState(false);
   const videoRef = useRef<HTMLVideoElement | null>(null);
-
+  const dispatch = useDispatch();
+  const showComponentPromoBanner = useSelector(
+    (state: RootState) => state.promoReducer.showComponentPromoBanner
+  );
   const [currentTime, setCurrentTime] = useState(0);
 
   useEffect(() => {
@@ -15,7 +20,7 @@ function PromoPage() {
     }
 
     const timer = setTimeout(() => {
-      setShowComponent(true);
+      dispatch(SetShowComponentPromoBanner(true));
     }, 1000);
 
     return () => {
@@ -24,7 +29,6 @@ function PromoPage() {
   }, []);
 
   const handlePlay = () => {
-    setShowComponent(false);
     if (videoRef.current) {
       videoRef.current.currentTime = currentTime;
       videoRef.current.play();
@@ -44,7 +48,7 @@ function PromoPage() {
   return (
     <>
       <div className="video-container">
-        {showComponent && <PromoBanner />}
+        {showComponentPromoBanner && <PromoBanner />}
         <video
           ref={videoRef}
           autoPlay
