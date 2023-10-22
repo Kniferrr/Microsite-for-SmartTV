@@ -54,7 +54,7 @@ function PromoPage() {
           onTimeUpdate={handleTimeUpdate}
         >
           <source
-            src="public/videos/Volvo Trucks - The Epic Split feat. Van Damme (Live Test).mp4"
+            src="videos/Volvo Trucks - The Epic Split feat. Van Damme (Live Test).mp4"
             type="video/mp4"
           />
           Ваш браузер не поддерживает воспроизведение видео.
