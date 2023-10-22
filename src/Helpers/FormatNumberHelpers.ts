@@ -19,11 +19,16 @@ export function formatPhoneNumber(input: string): string {
   return formattedPhone;
 }
 
+type MyAction = {
+  type: string;
+  payload: string | number;
+};
+
 export function validateNumber(
   numberValue: string,
   navigate: (path: string) => void,
   checkBoxState: boolean,
-  dispatch: (action: any) => void
+  dispatch: (action: MyAction) => void
 ) {
   if (numberValue.length == 10 && checkBoxState) {
     getValidateNumber(numberValue).then((response: ValidatedNumber) => {
