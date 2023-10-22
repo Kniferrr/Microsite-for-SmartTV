@@ -30,7 +30,7 @@ export function validateNumber(
       if (response.valid) {
         navigate("/final-page");
         dispatch(setErrorMessage(""));
-        dispatch(setCurrentSelection(14));
+        dispatch(setCurrentSelection(0));
       } else {
         dispatch(
           setErrorMessage(

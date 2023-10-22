@@ -21,7 +21,23 @@ function NumberInputPage() {
   const navigate = useNavigate();
   const { numberValue, currentSelection, checkBoxState, errorMessage } =
     useSelector((state: RootState) => state.promoReducer);
-  const buttons = 14;
+  const buttons = [
+    "null",
+    "1",
+    "2",
+    "3",
+    "4",
+    "5",
+    "6",
+    "7",
+    "8",
+    "9",
+    "NubmerInputClear",
+    "0",
+    "NubmerInputCheckBox",
+    "OkNubmerInputPage",
+    "Exit",
+  ];
   const validateNumberValue = formatPhoneNumber(numberValue);
 
   useEffect(() => {
@@ -47,7 +63,7 @@ function NumberInputPage() {
   return (
     <>
       <div className="number-input-page">
-        <ExitButton />
+        <ExitButton selectionNumber={buttons.length - 1} />
         <TimerComponent />
         <div className="number-input-page-container">
           <div className="number-input-page-panel">
@@ -65,7 +81,7 @@ function NumberInputPage() {
             </div>
             <div>
               <label
-                key={12}
+                key={"NubmerInputCheckBox"}
                 onMouseEnter={() => dispatch(setCurrentSelection(12))}
                 className={
                   currentSelection === 12
@@ -92,7 +108,7 @@ function NumberInputPage() {
               }
             >
               <button
-                key={13}
+                key={"OkNubmerInputPage"}
                 className={
                   currentSelection === 13
                     ? "number-input-page-panel-numframe-selected-button number-input-page-panel-button"

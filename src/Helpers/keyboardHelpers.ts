@@ -9,59 +9,60 @@ import { validateNumber } from "./FormatNumberHelpers";
 export const handleKeyPress = (
   key: string,
   currentSelection: number,
-  buttons: number,
+  buttons: Array<string>,
   dispatch: (action: any) => void,
   navigate: (path: string) => void,
   numberValue: string = "",
   checkBoxState: boolean = false
 ) => {
-  const numberKeys = "0123456789";
-
   switch (key) {
     case "ArrowLeft":
-      if (currentSelection > 1) {
+      if (currentSelection > 0) {
         dispatch(setCurrentSelection(currentSelection - 1));
-      } else if (currentSelection === 0) {
-        dispatch(setCurrentSelection(1));
       }
       break;
     case "ArrowRight":
-      if (currentSelection < buttons) {
+      if (currentSelection < buttons.length - 1) {
         dispatch(setCurrentSelection(currentSelection + 1));
       }
       break;
     case "Enter":
-      if (buttons === 1 && currentSelection === 14) {
-        navigate("/");
-      } else if (buttons === 1) {
+      if (buttons[currentSelection] == "OkPromoPage") {
         navigate("/number-input");
-      } else if (currentSelection === 14) {
+      } else if (buttons[currentSelection] == "Exit") {
         navigate("/");
-      } else if (currentSelection >= 1 && currentSelection <= 9) {
-        dispatch(setNumberValue(numberKeys[currentSelection - 1]));
-      } else if (currentSelection === 11) {
+      } else if (
+        parseInt(buttons[currentSelection]) >= 1 &&
+        parseInt(buttons[currentSelection])
+      ) {
+        dispatch(setNumberValue(buttons[currentSelection]));
+      } else if (buttons[currentSelection] === "0") {
         dispatch(setNumberValue("0"));
-      } else if (currentSelection === 10) {
+      } else if (buttons[currentSelection] === "NubmerInputClear") {
         dispatch(delLastNumberValue());
-      } else if (currentSelection === 12) {
+      } else if (buttons[currentSelection] === "NubmerInputCheckBox") {
         dispatch(setReturnCheckBox());
-      } else if (currentSelection === 13) {
+      } else if (buttons[currentSelection] === "OkNubmerInputPage") {
         validateNumber(numberValue, navigate, checkBoxState, dispatch);
       }
       break;
     case "ArrowUp":
-      if (currentSelection > 3) {
-        dispatch(setCurrentSelection(currentSelection - 3));
-      } else if (currentSelection >= 10 && currentSelection <= 12) {
+      if (currentSelection >= 10 && currentSelection <= 12) {
         dispatch(setCurrentSelection(currentSelection - 2));
       } else if (currentSelection >= 13) {
         dispatch(setCurrentSelection(currentSelection - 1));
       } else if (currentSelection === 0) {
         dispatch(setCurrentSelection(1));
+      } else if (currentSelection > 3) {
+        dispatch(setCurrentSelection(currentSelection - 3));
       }
       break;
     case "ArrowDown":
-      if (currentSelection > 0 && currentSelection < 8 && buttons !== 1) {
+      if (
+        currentSelection > 0 &&
+        currentSelection < 8 &&
+        buttons.length !== 1
+      ) {
         dispatch(setCurrentSelection(currentSelection + 3));
       } else if (currentSelection >= 8 && currentSelection <= 10) {
         dispatch(setCurrentSelection(currentSelection + 2));
@@ -79,7 +80,7 @@ export const handleKeyPress = (
       dispatch(delLastNumberValue());
       break;
     default:
-      if (numberKeys.includes(key)) {
+      if (buttons.includes(key)) {
         dispatch(setNumberValue(key));
       }
   }

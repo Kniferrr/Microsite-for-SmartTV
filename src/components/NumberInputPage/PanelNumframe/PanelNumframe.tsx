@@ -150,7 +150,7 @@ function PanelNumframe() {
         </div>
         <div className="number-input-page-panel-numframe-container-row">
           <div
-            key={10}
+            key={"NubmerInputClear"}
             className={
               currentSelection === 10
                 ? "number-input-page-panel-numframe-selected-button number-input-page-panel-numframe-button-clear number-input-page-panel-numframe-button"

@@ -12,7 +12,7 @@ function PromoBanner() {
   const currentSelection = useSelector(
     (state: RootState) => state.promoReducer.currentSelection
   );
-  const buttons = 1;
+  const buttons = ["null", "OkPromoPage"];
   useEffect(() => {
     document.addEventListener("keydown", onHandleKeyPress);
 
@@ -21,7 +21,7 @@ function PromoBanner() {
     };
   }, [currentSelection]);
 
-  if (currentSelection > buttons) {
+  if (currentSelection > buttons.length) {
     dispatch(setCurrentSelection(0));
   }
   const onHandleKeyPress = (event: KeyboardEvent) => {
@@ -42,9 +42,13 @@ function PromoBanner() {
         </div>
         <a href={`#/number-input`}>
           <button
-            className={"promo-banner-button"}
-            key={1}
+            key={"OkPromoPage"}
             onMouseEnter={() => dispatch(setCurrentSelection(1))}
+            className={
+              currentSelection === 1
+                ? "promo-banner-selected-button promo-banner-button"
+                : "promo-banner-button"
+            }
           >
             OK
           </button>

@@ -12,7 +12,7 @@ function FinalPage() {
   const currentSelection = useSelector(
     (state: RootState) => state.promoReducer.currentSelection
   );
-  const buttons = 1;
+  const buttons = ["null", "Exit"];
   const onHandleKeyPress = (event: KeyboardEvent) => {
     handleKeyPress(event.key, currentSelection, buttons, dispatch, navigate);
   };
@@ -27,7 +27,7 @@ function FinalPage() {
   return (
     <>
       <div className="number-input-page-container">
-        <ExitButton />
+        <ExitButton selectionNumber={buttons.length - 1} />
         <div className="final-page">
           <div className="final-page-container">
             <div className="final-page-container-text-big">ЗАЯВКА ПРИНЯТА</div>

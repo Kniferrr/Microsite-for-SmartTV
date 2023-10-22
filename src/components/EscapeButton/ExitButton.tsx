@@ -3,7 +3,11 @@ import "./ExitButton.scss";
 import { RootState } from "../../store/store";
 import { setCurrentSelection } from "../../store/reducers/promoReducer";
 
-function ExitButton() {
+interface ExitButtonProps {
+  selectionNumber: number;
+}
+
+const ExitButton: React.FC<ExitButtonProps> = ({ selectionNumber }) => {
   const dispatch = useDispatch();
   const currentSelection = useSelector(
     (state: RootState) => state.promoReducer.currentSelection
@@ -13,9 +17,9 @@ function ExitButton() {
       <div className="exit-button-container">
         <a href={`#/`}>
           <div
-            key={14}
+            key={"Exit"}
             className={
-              currentSelection === 14
+              currentSelection === selectionNumber
                 ? "number-input-page-panel-numframe-selected-button exit-button"
                 : "exit-button"
             }
@@ -27,6 +31,6 @@ function ExitButton() {
       </div>
     </>
   );
-}
+};
 
 export default ExitButton;
