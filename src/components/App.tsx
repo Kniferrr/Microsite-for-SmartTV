@@ -5,6 +5,7 @@ import NumberInputPage from "./NumberInputPage/NumberInputPage";
 import FinalPage from "./FinalPage/FinalPage";
 import { Provider } from "react-redux";
 import store from "../store/store";
+import NotFoundPage from "./NotFoundPage/NotFoundPage";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
               <Route path="/" element={<PromoPage />} />
               <Route path="/number-input" element={<NumberInputPage />} />
               <Route path="/final-page" element={<FinalPage />} />
+              <Route path="*" element={<NotFoundPage />} />
             </Routes>
           </HashRouter>
         </div>
