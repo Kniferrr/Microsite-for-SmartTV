@@ -24,6 +24,7 @@ function FinalPage() {
       document.removeEventListener("keydown", onHandleKeyPress);
     };
   }, [currentSelection]);
+
   return (
     <>
       <div className="number-input-page-container">

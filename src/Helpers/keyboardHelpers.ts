@@ -6,11 +6,16 @@ import {
 } from "../store/reducers/promoReducer";
 import { validateNumber } from "./FormatNumberHelpers";
 
+type MyAction = {
+  type: string;
+  payload: string | number | void;
+};
+
 export const handleKeyPress = (
   key: string,
   currentSelection: number,
   buttons: Array<string>,
-  dispatch: (action: any) => void,
+  dispatch: (action: MyAction) => void,
   navigate: (path: string) => void,
   numberValue: string = "",
   checkBoxState: boolean = false
