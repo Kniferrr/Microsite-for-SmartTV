@@ -55,10 +55,11 @@
 }
 
 .number-input-page-panel-numframe {
-  width: 284px;
-  height: 278px;
+  width: 290px;
   padding: 20px, 0px, 20px, 0px;
   gap: 10px;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .number-input-page-panel-checkbox-label {
