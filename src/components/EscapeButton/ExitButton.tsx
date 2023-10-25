@@ -9,9 +9,11 @@ interface ExitButtonProps {
 
 const ExitButton: React.FC<ExitButtonProps> = ({ selectionNumber }) => {
   const dispatch = useDispatch();
+
   const currentSelection = useSelector(
     (state: RootState) => state.promoReducer.currentSelection
   );
+
   return (
     <>
       <div className="exit-button-container">

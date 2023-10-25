@@ -15,7 +15,6 @@ export function formatPhoneNumber(input: string): string {
       formattedPhone = formattedPhone.replace("_", char);
     }
   }
-
   return formattedPhone;
 }
 

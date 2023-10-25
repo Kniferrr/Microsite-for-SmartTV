@@ -19,8 +19,10 @@ import TimerComponent from "../TimerComponent/TimerComponent";
 function NumberInputPage() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
   const { numberValue, currentSelection, checkBoxState, errorMessage } =
     useSelector((state: RootState) => state.promoReducer);
+
   const buttons = [
     "null",
     "1",
@@ -38,6 +40,7 @@ function NumberInputPage() {
     "OkNubmerInputPage",
     "Exit",
   ];
+
   const validateNumberValue = formatPhoneNumber(numberValue);
 
   useEffect(() => {

@@ -9,10 +9,13 @@ import { handleKeyPress } from "../../Helpers/keyboardHelpers";
 function PromoBanner() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
   const currentSelection = useSelector(
     (state: RootState) => state.promoReducer.currentSelection
   );
+
   const buttons = ["null", "OkPromoPage"];
+
   useEffect(() => {
     document.addEventListener("keydown", onHandleKeyPress);
 
@@ -24,6 +27,7 @@ function PromoBanner() {
   if (currentSelection > buttons.length) {
     dispatch(setCurrentSelection(0));
   }
+
   const onHandleKeyPress = (event: KeyboardEvent) => {
     handleKeyPress(event.key, currentSelection, buttons, dispatch, navigate);
   };

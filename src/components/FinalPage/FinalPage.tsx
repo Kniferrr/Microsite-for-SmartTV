@@ -9,10 +9,13 @@ import { useEffect } from "react";
 function FinalPage() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
   const currentSelection = useSelector(
     (state: RootState) => state.promoReducer.currentSelection
   );
+
   const buttons = ["null", "Exit"];
+
   const onHandleKeyPress = (event: KeyboardEvent) => {
     handleKeyPress(event.key, currentSelection, buttons, dispatch, navigate);
   };

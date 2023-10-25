@@ -8,9 +8,11 @@ import { SetShowComponentPromoBanner } from "../../store/reducers/promoReducer";
 function PromoPage() {
   const videoRef = useRef<HTMLVideoElement | null>(null);
   const dispatch = useDispatch();
+
   const showComponentPromoBanner = useSelector(
     (state: RootState) => state.promoReducer.showComponentPromoBanner
   );
+
   const [currentTime, setCurrentTime] = useState(0);
 
   useEffect(() => {

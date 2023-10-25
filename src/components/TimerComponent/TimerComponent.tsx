@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import "./TimerComponent/TimerComponent.scss";
+import "./TimerComponent.scss";
 
 const TimerComponent: React.FC = () => {
   const [time, setTime] = useState(10);
   const [mouseMoving, setMouseMoving] = useState(false);
   const navigate = useNavigate();
   const timeToTimer = 10;
+
   const handleMouseMove = () => {
     setMouseMoving(true);
     setTime(timeToTimer);
