@@ -42,7 +42,7 @@ export const handleKeyPress = (
       );
       break;
     case "ArrowUp":
-      dispatch(setCurrentSelection(handleArrowUp(currentSelection)));
+      dispatch(setCurrentSelection(handleArrowUp(currentSelection, buttons)));
       break;
     case "ArrowDown":
       dispatch(setCurrentSelection(handleArrowDown(currentSelection, buttons)));
@@ -61,33 +61,35 @@ export const handleKeyPress = (
   }
 };
 
-function handleArrowUp(currentSelection: number): number {
-  if (currentSelection >= 13) {
+function handleArrowUp(currentSelection: number, buttons: string[]): number {
+  const button = buttons[currentSelection];
+
+  if (isSpecialButtonOnUp(button)) {
     return currentSelection - 1;
-  } else if (currentSelection >= 10) {
+  } else if (isLargeNumberButtonOnUp(button)) {
     return currentSelection - 2;
-  } else if (currentSelection > 3) {
+  } else if (isMediumNumberButtonOnUp(button)) {
     return currentSelection - 3;
   } else if (currentSelection === 0) {
     return 1;
   }
+
   return currentSelection;
 }
 
 function handleArrowDown(currentSelection: number, buttons: string[]): number {
-  if (currentSelection >= 11) {
+  const button = buttons[currentSelection];
+
+  if (isSpecialButtonOnDown(button)) {
     return currentSelection + 1;
-  } else if (currentSelection >= 8) {
+  } else if (isLargeNumberButtonOnDown(button)) {
     return currentSelection + 2;
-  } else if (
-    currentSelection > 0 &&
-    currentSelection < 8 &&
-    buttons.length !== 1
-  ) {
+  } else if (isSmallNumberButtonOnDown(button, buttons)) {
     return currentSelection + 3;
   } else if (currentSelection === 0) {
     return 1;
   }
+
   return currentSelection;
 }
 
@@ -117,4 +119,37 @@ function handleEnter(
   } else if (buttons[currentSelection] === "OkNubmerInputPage") {
     validateNumber(numberValue, navigate, checkBoxState, dispatch);
   }
+}
+
+function isSpecialButtonOnDown(button: string): boolean {
+  return (
+    parseInt(button) === 0 ||
+    button === "NubmerInputCheckBox" ||
+    button === "OkNubmerInputPage"
+  );
+}
+
+function isLargeNumberButtonOnDown(button: string): boolean {
+  return parseInt(button) > 7 || button === "NubmerInputClear";
+}
+
+function isSmallNumberButtonOnDown(button: string, buttons: string[]): boolean {
+  return parseInt(button) >= 0 && parseInt(button) < 8 && buttons.length !== 1;
+}
+
+function isSpecialButtonOnUp(button: string): boolean {
+  return button === "OkNubmerInputPage" || button === "Exit";
+}
+
+function isLargeNumberButtonOnUp(button: string): boolean {
+  return (
+    parseInt(button) > 9 ||
+    button === "NubmerInputClear" ||
+    button === "NubmerInputCheckBox" ||
+    parseInt(button) === 0
+  );
+}
+
+function isMediumNumberButtonOnUp(button: string): boolean {
+  return parseInt(button) > 3;
 }
